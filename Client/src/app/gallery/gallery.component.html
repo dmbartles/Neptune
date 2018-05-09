@@ -1,0 +1,22 @@
+<!-- gallery toolbar -->
+<div class="container">
+  <div class="btn-toolbar" role="toolbar">
+    <form class="form-inline">
+      <select class="custom-select my-1 mr-sm-2" id="sortBy">
+        <option selected>Sort By...</option>
+        <option value="1">Line of Business</option>
+        <option value="2">Month</option>
+        <option value="3">Week</option>
+      </select>
+      <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+      <button type="button" class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+<!-- creative card -->
+<div class="container">
+    <app-creative
+      *ngFor='let creativeObject of creativeList'
+      [creative]="creativeObject">
+    </app-creative>
+</div>

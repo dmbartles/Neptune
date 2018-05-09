@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active">Summary</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/detail/{{creative._id}}">View & Update</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <small> Line of Business:</small>
+        <h3> {{ creative.lob }} </h3>
+
+        <small> Creative Name:</small>
+        <h4> {{ creative.name }} </h4>
+
+      </div>
+
+      <div class="col-6">
+        <small>Month |  Week:</small>
+        <h3> {{ creative.month }} | {{ creative.week }} </h3>
+
+        <small>Status:</small>
+        <h4> {{ creative.status }}</h4>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <small class="text-muted">Updated at: {{ creative.updatedAt }}</small>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+extends layout
+block title
+  title Pluto - Add Creative
+block body
+  .container
+    .card
+      .card-body
+        h2 Add Creative
+        form(method='POST' action="/creatives/submitcreative")
+          div.form-group
+            label(for='name') Creative Name:
+            input#title.form-control(type='text', placeholder='Creative Name' name='name')
+            small#name.form-text.text-muted Required
+          div.form-group
+            label(for='lob') Line of Business:
+            select#lob.form-control(name='lob')
+              option MCA Core
+              option MCS N2C
+              option UCA
+              option UCA Multicard
+              option SB
+              option Sony
+              option Playstation
+              option Other
+            small#lob.form-text.text-muted Required
+          div.form-group
+            label(for='resFam') ResFam:
+            select#resFam.form-control(name='resFam')
+              option AS-09
+              option BV-12P
+              option RQ-99Z
+              option LM-00
+              option SB-10H
+              option QW-11
+              option HH-09R
+              option Other
+            small#resFam.form-text.text-muted Required
+          div.form-group
+            label(for='testingCode') Testing Code:
+            select#testingCode.form-control(name='testingCode')
+              option Not Required
+              option AS-09
+              option BV-12P
+              option RQ-99Z
+              option LM-00
+              option SB-10H
+              option QW-11
+              option HH-09R
+              option Other
+            small#testingCode.form-text.text-muted Required only if volume 1MM+
+          div.form-group
+            label(for='testingCodeCreativeName') Testing Code Creative Name:
+            input#testingCodeCreativeName.form-control(type='test', name='testingCodeCreativeName')
+            small#testingCodeCreativeName.form-text.text-muted Required only if volume 1MM+
+          div.form-group
+            label(for='month') Select Drop Month
+            select#month.form-control(name='month')
+              option January
+              option February
+              option March
+              option April
+              option May
+              option June
+              option July
+              option August
+              option September
+              option October
+              option November
+              option December
+            small#month.form-text.text-muted Required
+          div.form-group
+            label(for='week') Select Drop Week
+            select#week.form-control(name='week')
+              option 1
+              option 2
+              option 3
+              option 4
+              option 5
+            small#week.form-text.text-muted Required
+          div.form-group
+            label(for='email') POC eMail:
+            input#email.form-control(type='email', placeholder='intent.owner@capitalone.com' name='email')
+            small#emails.form-text.text-muted Required
+          button.btn.btn-primary(type='submit') Post Your Creative

@@ -1,0 +1,115 @@
+<div class="card">
+  <div class="card-body">
+    <form #newCreativeForm="ngForm" (ngSubmit)="save(newCreativeForm)">
+      <div class="row">
+
+        <div class="col-md-4 mb-3">
+          <label for="lob">Line of Business</label>
+          <select class="form-control" required id="lob" name="lob" [(ngModel)]="creative.lob" #lob="ngModel">
+            <option *ngFor='let lob of lobs' value="{{lob}}">{{ lob }}</option>
+          </select>
+
+          <br>
+
+          <label for="estVolume">Estimated Letter Volume</label>
+          <select class="form-control" required id="estVolume" name="estVolume" [(ngModel)]="creative.estVolume" #estVolume="ngModel">
+            <option *ngFor='let volume of volumes' value="{{ volume }}">{{ volume }}</option>
+          </select>
+
+          <br>
+
+          <label for="month">Drop Month</label>
+          <select class="form-control" required id="month" name='month' [(ngModel)]="creative.month" #month="ngModel">
+            <option *ngFor='let month of months' value="{{ month }}">{{ month }}</option>
+          </select>
+
+          <br>
+          <label for="week">Drop Week</label>
+          <select class="form-control" required id="week" name='week' [(ngModel)]="creative.week" #week="ngModel">
+            <option *ngFor='let week of weeks' value="{{ week }}">{{ week }}</option>
+          </select>
+
+        </div>
+
+        <div class="col-md-8 mb-3">
+          <label for="name">Creative Name</label>
+          <input type="text" class="form-control" required id="name" name='name' [(ngModel)]="creative.name" placeholder="Creative Name" #name="ngModel">
+
+          <br>
+
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" required id="email" name='email' [(ngModel)]="creative.email" placeholder="Primary Business POC eMail" #name="ngModel">
+
+          <!-- determine if testing data required -->
+          <div *ngIf="creative.estVolume === '1,000,001 to 2,500,000' ||
+          creative.estVolume === '2,500,001 to 10,000,000' ||
+          creative.estVolume === '>10,000,000'">
+
+          <br>
+
+          <label for="testingCode">Testing Code</label>
+          <input type="text" class="form-control" id="testingCode" name='testingCode' [(ngModel)]="creative.testingCode" placeholder="Required if volume exceeds 1MM">
+
+          <br>
+
+          <label for="testingCodeCreativeName">Testing Code Creative Name</label>
+          <input type="text" class="form-control" id="testingCodeCreativeName" name='testingCodeCreativeName' [(ngModel)]="creative.testingCodeCreativeName"  placeholder="Required if volume exceeds 1MM">
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="mb-4">
+
+    <label for="resFam">Reservation Family</label>
+    <select class="form-control" required id="resFam" name='resFam' [(ngModel)]="creative.resFam" #resFam="ngModel">
+      <option *ngFor='let resFam of resFams' value="{{ resFam }}">{{ resFam }}</option>
+    </select>
+
+
+    <!-- <div class="row">
+      <div class="col-md-3 mb-3">
+        <label for="printMethod">Print Method</label>
+        <select class="form-control" required id="printMethod" name='printMethod' [(ngModel)]="creative.printMethod" #printMethod="ngModel">
+          <option *ngFor='let printMethod of printMethods' value="{{ printMethod }}">{{ printMethod }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <label for="simplexDuplex">Personization</label>
+        <select class="form-control" required id="simplexDuplex" name='simplexDuplex' [(ngModel)]="creative.simplexDuplex" #simplexDuplex="ngModel">
+          <option *ngFor='let simplexDuplex of simplexDuplexs' value="{{ simplexDuplex }}">{{ simplexDuplex }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <label for="height">Letter Height</label>
+        <select class="form-control" required id="height" name='height' [(ngModel)]="creative.height" #height="ngModel">
+          <option *ngFor='let height of heights' value="{{ height }}">{{ height }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <label for="insert">Number of Inserts</label>
+        <select class="form-control" required id="insert" name='insert' [(ngModel)]="creative.insert" #insert="ngModel">
+          <option *ngFor='let insert of inserts' value="{{ insert }}">{{ insert }}</option>
+        </select>
+      </div>
+    </div> -->
+
+    <hr class="mb-4">
+  <!-- <div *ngIf="!newCreativeForm.valid">
+    <p>Complete form for cost estimate<p>
+  </div>
+
+
+<div *ngIf="newCreativeForm.valid">
+<p>Estimate cost per creative: $10<p>
+</div>
+    <hr class="mb-4"> -->
+
+
+  <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!newCreativeForm.valid" >Complete</button>
+</form>
+</div>
+</div>

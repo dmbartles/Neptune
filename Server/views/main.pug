@@ -1,0 +1,31 @@
+extends layout
+block title
+  title Pluto - Display All Creatives
+block body
+    .container
+      each creative in creatives
+        .card
+          .card-body
+            .row
+              .col-2
+                small.text Drop Month | Week
+                h4.card-text #{creative.month} | #{creative.week}
+                small.text Line Of Business
+                h4.card-text #{creative.lob}
+              .col-5
+                small.text Creative Name
+                h4.card-text #{creative.resFam} #{creative.name}
+                small.text Brand eMail
+                h4.card-text #{creative.email}
+              .col-5
+                small.text Testing Code
+                h4.card-text #{creative.testingCode}
+                small.text Testing Creative Name
+                h4.card-text #{creative.testingCodeCreativeName}
+            br
+            .btn-group
+                a.btn.btn-sm.btn-outline-secondary(href='/creatives/editcreative/'+creative._id) Edit
+                a.btn.btn-sm.btn-outline-secondary(href='/creatives/deletecreative/'+creative._id) Delete
+          .card-footer
+            small.text-muted Updated At: #{creative.updatedAt}
+        br
