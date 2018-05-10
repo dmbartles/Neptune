@@ -18,27 +18,27 @@
   <div class="card-body">
     <div *ngIf="!editing">
       <div class="row">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-5 mb-3">
           <small> Line of Business:</small>
-          <h3> {{ creative.lob }} </h3>
+          <h4> {{ creative.lob }} </h4>
 
           <small> Estimated Letter Volume:</small>
-          <h3> {{ creative.estVolume }} </h3>
+          <h4> {{ creative.estVolume }} </h4>
 
           <small> Drop Month:</small>
-          <h3> {{ creative.month }} </h3>
+          <h4> {{ creative.month }} </h4>
 
           <small> Drop Week:</small>
-          <h3> {{ creative.week }} </h3>
+          <h4> {{ creative.week }} </h4>
 
         </div>
 
-        <div class="col-md-8 mb-3">
+        <div class="col-md-7 mb-3">
           <small>Creative Name:</small>
-          <h3> {{ creative.name }} </h3>
+          <h4> {{ creative.name }} </h4>
 
           <small>eMail Address:</small>
-          <h3> {{ creative.email }} </h3>
+          <h4> {{ creative.email }} </h4>
 
           <!-- determine if testing data required -->
           <div *ngIf="creative.estVolume === '1,000,001 to 2,500,000' ||
@@ -46,37 +46,43 @@
           creative.estVolume === '>10,000,000'">
 
           <small>Testing Code</small>
-          <h3> {{ creative.testingCode }} </h3>
+          <h4> {{ creative.testingCode }} </h4>
 
           <small>Testing Code Creative Name</small>
-          <h3> {{ creative.testingCodeCreativeName }} </h3>
+          <h4> {{ creative.testingCodeCreativeName }} </h4>
         </div>
 
       </div>
 
     </div>
-
+        <hr class="mb-4">
+        <div class="row">
+              <div class="col-12">
+          <small>Reservation Family:</small>
+          <h4> {{ creative.resFam }}</h4>
+        </div>
+        </div>
     <hr class="mb-4">
 
     <div class="row">
       <div class="col-md-3 mb-3">
         <small>Print Method</small>
-        <h3> {{ creative.printMethod }} </h3>
+        <h4> {{ creative.printMethod }} </h4>
       </div>
 
       <div class="col-md-3 mb-3">
         <small>Personization</small>
-        <h3> {{ creative.simplexDuplex }} </h3>
+        <h4> {{ creative.simplexDuplex }} </h4>
       </div>
 
       <div class="col-md-3 mb-3">
         <small>Letter Height</small>
-        <h3> {{ creative.height }} </h3>
+        <h4> {{ creative.height }} </h4>
       </div>
 
       <div class="col-md-3 mb-3">
         <small>Number of Inserts</small>
-        <h3> {{ creative.insert }} </h3>
+        <h4> {{ creative.insert }} </h4>
       </div>
     </div>
 
@@ -87,7 +93,7 @@
 
     <form #newCreativeForm="ngForm" (ngSubmit)="updateCreative(updateCreativeForm)">
       <div class="row">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-5 mb-3">
           <label for="lob">Line of Business</label>
           <select class="form-control" required id="lob" name="lob" [(ngModel)]="creative.lob" #lob="ngModel">
             <option *ngFor='let lob of lobs' value="{{lob}}">{{ lob }}</option>
@@ -115,7 +121,7 @@
 
         </div>
 
-        <div class="col-md-8 mb-3">
+        <div class="col-md-7 mb-3">
           <label for="name">Creative Name</label>
           <input type="text" class="form-control" required id="name" name='name' [(ngModel)]="creative.name" placeholder="Creative Name" #name="ngModel">
 
@@ -197,7 +203,7 @@
             <hr class="mb-4">
           </div>
         </div>
-        <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="setEditMode(false)" [disabled]="!newCreativeForm.valid" >Update</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!newCreativeForm.valid" >Update</button>
       </form>
     </div>
 

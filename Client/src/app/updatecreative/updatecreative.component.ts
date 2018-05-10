@@ -44,7 +44,7 @@ export class UpdatecreativeComponent implements OnInit {
            .subscribe((creative)=>{
              console.log(creative);
            });
-     this.router.navigate(['detail/',param]);
+       this.editing = false;
      }
 
    deleteCreative(){

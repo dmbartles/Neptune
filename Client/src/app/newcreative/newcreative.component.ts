@@ -25,7 +25,7 @@ save(newCreativeForm) : void {
         .subscribe((creative)=>{
           console.log(creative);
         });
-  this.router.navigate(['/gallery/']);
+             this.router.navigate(['/gallery']);
   }
 
   // define allowable fields
