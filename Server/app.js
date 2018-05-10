@@ -42,7 +42,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');  // tells express to use pug as the template engine
 
 // set up routes FOR PROD
-app.use('/', express.static('../client/dist'));
+app.use('/', express.static('../Client/dist'));
+app.use('/api/creatives', apicreatives);
+app.use('/creatives', creatives);
 
 app.use((req, res, next)=>{
   console.log("/notfound");
